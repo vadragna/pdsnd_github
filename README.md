@@ -8,7 +8,7 @@ Explore US Bikeshare Data from "Programming for Data Science with Python Nano De
 
 ### Description
 
-In this project, the user running the bikeshare.py script, and interacting with the terminal can get and filter different information about bikeshare data from three different cities in the USA.
+In this project, the user can run the bikeshare.py script, and interact with the terminal can get and filter different information about bikeshare data from three different cities in the USA.
 
 ### Files used
 
