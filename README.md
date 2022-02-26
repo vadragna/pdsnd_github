@@ -10,6 +10,10 @@ Explore US Bikeshare Data from "Programming for Data Science with Python Nano De
 
 In this project, the user can run the bikeshare.py script, and interact with the terminal can get and filter different information about bikeshare data from three different cities in the USA.
 
+### Instructions
+
+Run the file bikeshare.py, and interact with the terminal to get information about bike shake data.
+
 ### Files used
 
 bikeshare.py
