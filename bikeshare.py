@@ -12,19 +12,19 @@ def get_filters():
     while city != 'chicago' and city != 'new york city' and city != 'washington':
       print("Please insert 'chicago', 'new york city' or 'washington', no any other value")
       city = input("From which city you wish to get the data: ")
-    print('Thanks for selecting the city: ', city)
+    print('Thanks for selecting the city: {}'.format(city))
 
     month = input("For which month you wish to get the data? Insert 'jan', 'feb', 'mar', 'apr', 'may' or 'jun'. If you wish to have the whole data independently from the month, instert 'all' ").lower()
     while month != 'jan' and  month != 'feb' and month != 'mar' and month != 'apr' and month != 'may' and month != 'jun' and month != 'all':
         print("Please insert 'jan', 'feb' or 'mar', 'apr', 'may', 'june' or 'all' no any other value")
         month = input("For which city you wish to get the data? Insert 'jan', 'feb', 'mar', 'apr', 'may' or 'jun'. If you wish to have the whole data independently from the month, instert 'all' ")
-    print('Thanks for selecting the month: ', month)
+    print('Thanks for selecting the month: {}'.format(month))
 
     day = input("From which day you wish to get the data? Insert 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', or If you wish to have the whole data independently from the month, instert 'all' ").lower()
     while day != 'monday' and  day != 'tuesday' and day != 'wednesday' and  day != 'thursday' and  day != 'friday' and  day != 'saturday' and day != 'sunday' and  day != 'all':
         print("Please insert 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' or 'all' no any other value")
         day = input("From which day you wish to get the data? Insert 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', or all If you wish to have the whole data independently from the month, instert 'all' ")
-    print('Thanks for selecting the day: ', day)
+    print('Thanks for selecting the day: {}'.format(day))
 
     print('-'*40)
     return city, month, day
@@ -59,15 +59,15 @@ def time_stats(df):
 
     df['month'] = df['Start Time'].dt.month
     popular_month = df['month'].mode()[0]
-    print('Most Popular Start Month:', Months[popular_month - 1])
+    print('Most Popular Start Month: {}'.format(Months[popular_month - 1]))
 
     df['day_of_week'] = df['Start Time'].dt.dayofweek
     popular_day = df['day_of_week'].mode()[0]
-    print('Most Popular Start day:', Days[popular_day])
+    print('Most Popular Start day: {}'.format(Days[popular_day]))
 
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
-    print('Most Popular Start Hour:', popular_hour)
+    print('Most Popular Start Hour: {}'.format(popular_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -79,12 +79,12 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    print("The most common start station is:", df['Start Station'].mode()[0])
+    print("The most common start station is: {}".format(df['Start Station'].mode()[0]))
 
-    print("The most common end station is:", df['End Station'].mode()[0])
+    print("The most common end station is: {}".format(df['End Station'].mode()[0]))
 
     df2 = "From " + df['Start Station'] + " to " + df['End Station']
-    print('the most common combination is: ', df2.mode()[0])
+    print('the most common combination is: {}'.format(df2.mode()[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -96,9 +96,9 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    print('The total travel time is: ', df['Trip Duration'].sum())
+    print('The total travel time is: {}'.format(df['Trip Duration'].sum()))
 
-    print("The avarege travel time is: ",df['Trip Duration'].mean())
+    print("The avarege travel time is: {}".format(df['Trip Duration'].mean()))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -110,18 +110,18 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    print("the user types distribution is the following: ", df['User Type'].value_counts())
+    print("the user types distribution is the following: {}".format(df['User Type'].value_counts()))
 
     try:
         print('df(gender)', df['Gender'])
-        print("the gender distribution is the following: ", df['Gender'].value_counts())
+        print("the gender distribution is the following: {}".format(df['Gender'].value_counts()))
     except:
         print('No Gender data')
 
     try:
-        print("the youngest user was bon in ", int(df['Birth Year'].max()))
-        print("the eldest user was bon in ", int(df['Birth Year'].min()))
-        print("the commonest year of birth of the users was ", int(df['Birth Year'].mode()[0]))
+        print("the youngest user was bon in {}".format(int(df['Birth Year'].max())))
+        print("the eldest user was bon in {}".format(int(df['Birth Year'].min())))
+        print("the commonest year of birth of the users was {}".format(int(df['Birth Year'].mode()[0])))
     except:
         print('No Age data')
 
